@@ -1,0 +1,80 @@
+.agdasima-regular {
+    font-family: "Agdasima", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.agdasima-bold {
+    font-family: "Agdasima", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.monsieur-la-doulaise-regular {
+    font-family: "Monsieur La Doulaise", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.material-symbols-outlined { 
+  font-variation-settings:
+  'FILL' 0,                     /*https://developers.google.com/fonts/docs/material_symbols*/
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  user-select: none;
+}
+
+.fill{
+    font-variation-settings: 'FILL' 1;
+    color: white; 
+    background-color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+}
+
+.header{
+    padding: 2%;
+    background-color: #ffa500;
+    text-align: center;
+    color: white;
+}
+
+.header h1{
+    background-color: orange;
+    text-align: center;
+    color: white;
+    font-size: 500%;
+}
+
+.navbar{
+    display: block;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    background-color: #EDEC6F;
+    color: black;
+}
+
+
+.navbar span{
+    float: left;
+    text-align: center;
+    padding: 10px 16px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+.navbar span.right{
+    float: right;
+    text-align: center;
+    padding: 10px 16px;
+    margin: 0px;
+    text-decoration: none;
+}
