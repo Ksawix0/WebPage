@@ -75,6 +75,8 @@ body{
 .navbar span{
     float: left;
     text-align: center;
+    color: black;
+    text-decoration: none;
     padding: 10px 16px;
     margin: 0px;
     text-decoration: none;
