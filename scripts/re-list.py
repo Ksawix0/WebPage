@@ -49,7 +49,7 @@ content = []
 
 conf_backup = input("Make a backup? (y or n [deafult y]): ")
 
-if conf_backup == "y" or conf_backup == "\n":  #Backup content
+if conf_backup == "y" or conf_backup == "":  #Backup content
     with open(rw_file, 'r') as file:
         content = file.readlines()
         
@@ -58,7 +58,9 @@ if conf_backup == "y" or conf_backup == "\n":  #Backup content
     print("Backup made in "+backup_file)
 else:
     print("Backup not created")
-    
+
+input()
+   
 for ext in extesions:   #list docs-approved files
     for f in os.listdir(dir):
         if f.endswith(ext):
@@ -77,7 +79,7 @@ for x in preped_docs:   #insert lines to template
     y+=1
     template.insert(start_line-2+y,x)
 
-#gui line "-"
+#gui line "-" lengh
 gui_max_wi= 0
 all_elements = []
 all_elements.extend(os.listdir(dir))
