@@ -1,13 +1,13 @@
 import os
 
 #dir of home repository folder
-dir="./docs"
+dir="./docs/"
 sourse_file="./docs/index_v0.html"
 rw_file = "./docs/index.html"
 backup_file = "./docs/index_Backup.html"
 start_line = 20
 extesions = ['.pdf','.txt']
-li_exaple=['''            <li style="text-align: left; padding-left: 5%;"><a href="./''','''" style="font-size: larger; color: white">''','''</a></li>''']
+li_exaple=['''            <li style="text-align: left; padding-left: 5%;"><a href="''','''" style="font-size: larger; color: white">''','''</a></li>''']
 
 fix = 0
 
@@ -67,7 +67,7 @@ for ext in extesions:   #list docs-approved files
 docs.sort()
 
 for name in docs: #prep_docs injection to file
-    preped_docs.append(li_exaple[0]+name+li_exaple[1]+name+li_exaple[2] + "\n")
+    preped_docs.append(li_exaple[0]+dir+name+li_exaple[1]+name+li_exaple[2] + "\n")
     
 with open(sourse_file, 'r') as file:    #source/template read
     template = file.readlines()
