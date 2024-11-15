@@ -18,8 +18,9 @@ except:
         open("."+sourse_file,"r")
     except:
         print("Check files directorys")
-        print("Default home folder in files locations is home folder of repostitory")
+        print("\n!!   Or try running script through cmd/powershell opened in repositry folder   !!\n")
         input("Press any button to exit")
+        quit()
     finally:
         sourse_file = "."+sourse_file
         rw_file = "."+rw_file
@@ -107,3 +108,4 @@ else:
     print("Operation aborted")
 
 input("Press ENTER to exit")
+quit()
