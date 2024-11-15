@@ -1,5 +1,6 @@
 import os
 
+#dir of home repository folder
 dir="./docs"
 sourse_file="./docs/index_v0.html"
 rw_file = "./docs/index.html"
@@ -44,13 +45,15 @@ content = []
 
 conf_backup = input("Make a backup? (y or n [deafult y]): ")
 
-if conf_backup == "y" or "\n":  #Backup content
+if conf_backup == "y" or conf_backup == "\n":  #Backup content
     with open(rw_file, 'r') as file:
         content = file.readlines()
         
         with open(backup_file, "w") as backup:
             backup.writelines(content)
     print("Backup made in "+backup_file)
+else:
+    print("Backup not created")
     
 for ext in extesions:   #list docs-approved files
     for f in os.listdir(dir):
@@ -66,9 +69,9 @@ with open(sourse_file, 'r') as file:    #source read
     template = file.readlines()
 
 y = 0
-for x in preped_docs:
+for x in preped_docs:   #insert lines to template
     y+=1
-    template.insert(start_line-1+y,x)
+    template.insert(start_line-2+y,x)
 
 #gui line "-"
 gui_max_wi= 0
@@ -96,7 +99,7 @@ print( gui_max_wi * "-"+gui_max_wi//10 * "-") #line "-"
 
 conf = input("Overwrite File["+rw_file+"]? (y or n[deafult n]): ")
 
-if conf == "y":   #Ovewriting
+if conf == "y" or conf == "t":   #Ovewriting
     with open(rw_file, 'w') as file:
         file.writelines(template)
     print("File successfully overwritten\n"+rw_file)
