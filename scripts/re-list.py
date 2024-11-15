@@ -9,7 +9,9 @@ start_line = 20
 extesions = ['.pdf','.txt']
 li_exaple=['''            <li style="text-align: left; padding-left: 5%;"><a href="./''','''" style="font-size: larger; color: white">''','''</a></li>''']
 
-try:    #fix for cmd py launch
+fix = 0
+
+try:    #fix for cmd script launch
     open(sourse_file,"r")
     open(rw_file,"r")
     open(backup_file,"w")
@@ -26,6 +28,7 @@ except:
         rw_file = "."+rw_file
         backup_file = "."+backup_file
         dir = "."+dir
+        fix = 1
         
 
 print(len(li_exaple[0]+li_exaple[1]+li_exaple[2]) * "-" + len(li_exaple[0]+li_exaple[1]+li_exaple[2])//3 * "-") #line "-"
@@ -63,10 +66,10 @@ for ext in extesions:   #list docs-approved files
 
 docs.sort()
 
-for name in docs: #prep docs
+for name in docs: #prep_docs injection to file
     preped_docs.append(li_exaple[0]+name+li_exaple[1]+name+li_exaple[2] + "\n")
     
-with open(sourse_file, 'r') as file:    #source read
+with open(sourse_file, 'r') as file:    #source/template read
     template = file.readlines()
 
 y = 0
