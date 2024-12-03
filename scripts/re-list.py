@@ -10,11 +10,13 @@ extesions = ['.pdf','.txt']
 li_exaple=['''            <li style="text-align: left; padding-left: 5%;"><a href="''','''" style="font-size: larger; color: white">''','''</a></li>''']
 
 fix = 0
+if not (dir.startswith("..")):
+    fdir="."+dir
 
 try:    #fix for cmd script launch
     open(sourse_file,"r")
     open(rw_file,"r")
-    open(backup_file,"w")
+    open(backup_file,"r+")
 except:
     try:
         open("."+sourse_file,"r")
@@ -53,7 +55,7 @@ if conf_backup == "y" or conf_backup == "":  #Backup content
     with open(rw_file, 'r') as file:
         content = file.readlines()
         
-        with open(backup_file, "w") as backup:
+        with open(backup_file, "r+") as backup:
             backup.writelines(content)
     print("Backup made in "+backup_file)
 else:
@@ -69,7 +71,7 @@ for ext in extesions:   #list docs-approved files
 docs.sort()
 
 for name in docs: #prep_docs injection to file
-    preped_docs.append(li_exaple[0]+dir+name+li_exaple[1]+name+li_exaple[2] + "\n")
+    preped_docs.append(li_exaple[0]+fdir+name+li_exaple[1]+name+li_exaple[2] + "\n")
     
 with open(sourse_file, 'r') as file:    #source/template read
     template = file.readlines()
