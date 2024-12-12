@@ -63,12 +63,11 @@ else:
 
 input()
    
-for ext in extesions:   #list docs-approved files
+for ext in extesions:   #list docs-approved files, sort
     for f in os.listdir(dir):
         if f.endswith(ext):
             docs.append(f)
-
-docs.sort()
+docs.sort(reverse=True)
 
 for name in docs: #prep_docs injection to file
     preped_docs.append(li_exaple[0]+fdir+name+li_exaple[1]+name+li_exaple[2] + "\n")
