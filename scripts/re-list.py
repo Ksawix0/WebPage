@@ -77,7 +77,7 @@ with open(sourse_file, 'r') as file:    #source/template read
 
 y = 0
 for x in preped_docs:   #insert lines to template
-    y+=1,
+    y+=1
      
     template.insert(start_line-2+y,x)
 
