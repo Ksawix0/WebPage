@@ -5,7 +5,7 @@ dir="./docs/"
 sourse_file="./docs/index_v0.html"
 rw_file = "./docs/index.html"
 backup_file = "./docs/index_Backup.html"
-start_line = 20
+start_line = 25
 extesions = ['.pdf','.txt']
 li_exaple=['''            <li style="text-align: left; padding-left: 5%;"><a href="''','''" style="font-size: larger; color: white">''','''</a></li>''']
 
@@ -63,7 +63,7 @@ else:
 
 input()
    
-for ext in extesions:   #list docs-approved files, sort
+for ext in extesions:   #list docs-approved files, sort----------------------------------------------------------------------------------------
     for f in os.listdir(dir):
         if f.endswith(ext):
             docs.append(f)
@@ -77,7 +77,8 @@ with open(sourse_file, 'r') as file:    #source/template read
 
 y = 0
 for x in preped_docs:   #insert lines to template
-    y+=1
+    y+=1,
+     
     template.insert(start_line-2+y,x)
 
 #gui line "-" lengh
