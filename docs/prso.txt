@@ -59,7 +59,7 @@ systemctl is-active httpd
 ping -t 64 <adres_IP>
 
 7.Podaj polecenie, które nie rozwiązuje nazw domenowych tylko pokazuje IP. Bardzo przydatne, gdyż lookupy nazw DNS są bardzo wolne.
-ig +short A youtube.com 
+dig +short A youtube.com 
 
 8.Za pomocą polecenia wykonaj proste aktywne skanowanie UDP oraz pokaż wyniki
 nmap -sU <adres_IP>
