@@ -65,6 +65,7 @@ function dk(){
     if (dk.style.backgroundColor == 'black'){
 
         dk.style.backgroundColor = 'white'
+        dk.style.color = 'black'
         dk.className = 'material-symbols-outlined right'
         document.body.style.backgroundColor = 'white'
         document.body.style.color = 'black'
@@ -74,6 +75,7 @@ function dk(){
         else{
         
         dk.style.backgroundColor = 'black'
+        dk.style.color = 'white'
         dk.className = 'material-symbols-outlined right fill'
         document.body.style.backgroundColor = 'black'
         document.body.style.color = 'white'
