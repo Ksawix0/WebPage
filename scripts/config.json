@@ -1,0 +1,16 @@
+{
+    "dir": "./docs/",
+    "sourse_file": "./docs/index_v0.html",
+    "rw_file": "./docs/index.html",
+    "backup_file": "./docs/index_Backup.html",
+    "start_line": 25,
+    "extesions": [
+        ".pdf",
+        ".txt"
+    ],
+    "li_exaple": [
+        "            <li style=\"text-align: left; padding-left: 5%;\"><a href=\"",
+        "\" style=\"font-size: larger; color: white\">",
+        "</a></li>"
+    ]
+}
