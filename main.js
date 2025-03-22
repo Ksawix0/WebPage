@@ -4,12 +4,14 @@ document.querySelectorAll(".clickable").forEach(function(element) {
     });
 });
 
+console.log("What are you looking at?");
+
 function bt() {
     alert('hello world');  
 }
 
 function disapear() {
-var text = document.getElementById('text');
+let text = document.getElementById('text');
 if (text.style.display === 'none') {
     text.style.display = 'block';
 } else {
@@ -18,7 +20,7 @@ if (text.style.display === 'none') {
 }
 
 function wi() {
-    var wi = document.getElementById('wi')
+    let wi = document.getElementById('wi')
     if (wi.style.width == '2cm'){
 
         wi.style.width = '4cm'
@@ -33,7 +35,7 @@ function wi() {
 }
 
 function scde(){
-    var sc = document.getElementById('sc')
+    let sc = document.getElementById('sc')
     if (sc.style.color == 'white'){
 
     sc.style.color = 'black'
@@ -47,7 +49,7 @@ function scde(){
 
 function sc(x) {
     alert(x);
-    var sc = document.getElementById('sc')
+    let sc = document.getElementById('sc')
 
     if (sc.style.color == 'white'){
 
@@ -60,8 +62,8 @@ function sc(x) {
     }
 }
 
-function dk(){
-    var dk = document.getElementById('dark_mode')
+function dk(id){
+    let dk = document.getElementById(id)
     if (dk.style.backgroundColor == 'black'){
 
         dk.style.backgroundColor = 'white'
