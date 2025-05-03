@@ -11,13 +11,11 @@
     <link rel="icon" href="https://static-00.iconduck.com/assets.00/code-tech-dev-icon-2048x1786-397qmt5y.png">
     
     <link rel="stylesheet" href="main.css">
-    <span>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_
-            names=dark_mode,light_mode" />
-    </span>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode,light_mode" />
 
 </head>
 <script src="./main.js"></script>
@@ -41,12 +39,12 @@
 
     </div>
 
-    <div style="display: flex; display: block">
+    <div style="display: block">
         <p style="float: left;">a</p>
         <p style="float: right;">a</p>
     </div>
 
-    <center>
+    <div style="text-align: center;">
 
         <h1 class="clickable" onclick="bt()">hello world</h1>
 
@@ -59,16 +57,16 @@
         <span class="monsieur-la-doulaise-regular">monsieur-la-doulaise-regular</span> <br>
     
         <button onclick="bt()">Pokaż komunikat</button> <br>
-        <button onclick="disapear()" style="display: block;" id="text">button</button>
-        <button onclick="mitoza()">mitoza</button><br>
-        <marquee style="width: 40%;"><button onclick="wi()" style="width: 2cm; background-color: aqua; border-color: lime; cursor: grabbing;" id="wi">size</button></marquee> <br>
-    
+        <button onclick="disapear()" id="text">button</button> <br>
+        <button onclick="mitoza()" style="display: inline">mitoza</button> <br>
+        <marquee style="width: 40%;"><button onclick="wi()" style="width: 2cm; background-color: aqua; border-color: lime; cursor: grabbing;" id="wi">size</button></marquee>
+
         <marquee behavior="scroll" scrollamount="50"><button id="sc" style="background-color: black; color: white;" onclick="sc('???')" onmouseenter="scde()" onmouseleave="scde()">???</button></marquee> <br>
     
         <abbr title="World Health Organization" style="text-decoration:none;">WHO</abbr> was founded in 1948. <br>
     
         <marquee behavior="scroll" direction="left" style="width:4cm ;"><div class="clickable">abc</div></marquee> <br>
 
-    </center>
+    </div>
 </body>
 
