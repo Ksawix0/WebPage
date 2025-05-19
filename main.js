@@ -38,7 +38,7 @@ if (text.style.display === 'none') {
 
 function wi() {
     let wi = document.getElementById('wi')
-    if (wi.style.width == '2cm'){
+    if (wi.style.width === '2cm'){
 
         wi.style.width = '4cm'
         wi.style.backgroundColor = 'lime'
@@ -53,7 +53,7 @@ function wi() {
 
 function scde(){
     let sc = document.getElementById('sc')
-    if (sc.style.color == 'white'){
+    if (sc.style.color === 'white'){
 
     sc.style.color = 'black'
     sc.style.backgroundColor = 'white'
@@ -68,7 +68,7 @@ function sc(x) {
     alert(x);
     let sc = document.getElementById('sc')
 
-    if (sc.style.color == 'white'){
+    if (sc.style.color === 'white'){
 
     sc.style.color = 'black'
     sc.style.backgroundColor = 'white'
