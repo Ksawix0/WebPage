@@ -1,22 +1,20 @@
+/*Fonts*/
 .agdasima-regular {
     font-family: "Agdasima", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
-
 .agdasima-bold {
     font-family: "Agdasima", sans-serif;
     font-weight: 700;
     font-style: normal;
 }
-
 .monsieur-la-doulaise-regular {
     font-family: "Monsieur La Doulaise", cursive;
     font-weight: 400;
     font-style: normal;
 }
-
-.material-symbols-outlined { 
+.material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,                     /*https://developers.google.com/fonts/docs/material_symbols*/
   'wght' 400,
@@ -27,23 +25,6 @@
 
 .fill{
     font-variation-settings: 'FILL' 1;
-    color: white; 
-    background-color: black;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body{
-    margin: 0px;
-}
-
-.header{
-    padding: 1.5%;
-    background-color: #ffa500;
-    text-align: center;
-    color: white;
 }
 
 @media screen and (max-height: 20cm) {
@@ -54,6 +35,21 @@ body{
         font-size: 300%;
     }
 }
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.header{
+    padding: 1.5%;
+    background-color: #ffa500;
+    text-align: center;
+    color: white;
+}
+
 
 .header h1{
     background-color: orange;
@@ -65,8 +61,8 @@ body{
 .navbar{
     display: block;
     overflow: hidden;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     background-color: #EDEC6F;
     color: black;
 }
@@ -78,14 +74,13 @@ body{
     color: black;
     text-decoration: none;
     padding: 10px 16px;
-    margin: 0px;
-    text-decoration: none;
+    margin: 0;
 }
 
 .navbar span.right{
     float: right;
     text-align: center;
     padding: 10px 16px;
-    margin: 0px;
+    margin: 0;
     text-decoration: none;
 }
