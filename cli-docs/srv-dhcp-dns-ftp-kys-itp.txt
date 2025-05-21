@@ -1,0 +1,192 @@
+Praktyczne zadania powtórzeniowe z konfiguracji us³ug sieciowych Zadanie nr 1
+1. Ustaw dla systemu Linux dwie karty sieciowe nat i internal (Sieæ wewnêtrzna) (screen).
+
+2. Karta sieciowa nat ma mieæ przydzielony adres ip dynamicznie, karta sieciowa internal (Sieæ wewnêtrzna) ma mieæ przydzielony adres ip statycznie z sieci 10.10.x.0/24 (x-nr z dziennika) (screen).
+
+3. Zainstaluj i skonfiguruj i sprawdŸ us³ugê DHCP:
+apt install isc-shcp-server
+
+a) zakres przydzielanych adresów IP ustaw na 10.10.x.100-10.10.x.150/24 (x-nr z dziennika), w konfiguracji wpisz równie¿ adres IP bramy (screen).
+------------------------------------
+vi /etc/default/isc-dhcp-server
+>INTERFACESv4=””
+vi /etc/dhcp/dhcpd.conf
+>#authoritative; > authoritative;
+>subnet 10.10.x.0 netmask 255.255.255.0 {
+>  range dynamic-bootp 10.10.x.100 10.10.x.150;
+>  option subnet-mask 255.255.255.0;
+>}
+------------------------------------
+
+b) sprawdŸ czy stacja robocza z Windows 10 otrzymuje adres z DHCP (screen).
+
+4. Zainstaluj us³ugê serwera DNS.
+-----------------------------------------
+apt install bind9 bind9utils bind9-doc
+vi /etc/hosts
+> {addr srv} srv.local
+vi /etc/hostname
+> preserve_hostname: true
+vi /etc/resolv.conf
+> nameserver {addr srv}
+> search srv.local
+-----------------------------------------
+
+5. Skonfiguruj serwer DNS utwórz i zdefiniuj sekcje dla stref
+-----------------------------------------
+vi /etc/bind/named.conf.options
+> forwarders{
+> 		8.8.8.8;
+> };
+vi /etc/bind/named.conf.local
+-----------------------------------------
+
+a) wewnêtrznej, utwórz pliki stref, które serwery rozpoznaj¹ adres IP z nazwy domeny (screeny),
+---------------------------------------------------------------
+zone "srv.local" IN {
+        type master;
+        file "/etc/bind/for.srv.local.db";
+        allow-update {none;};
+        allow-transfer {10.10.26.1;};
+        also-notify{10.10.26.1;};
+};
+cp /etc/bind/db.local /etc/bind/for.srv.local.db
+vi /etc/bind/for.srv.local.db
+// zmieñ
+> @       IN      SOA     dlp.srv.local. root.dlp.srv.local.
+// dodaj
+> @       IN      NS      dlp.srv.local.
+> dlp     IN      A       10.10.26.1
+> klient1 IN      A       10.10.26.35
+---------------------------------------------------------------
+
+b) zewnêtrznej, utwórz pliki stref, które serwery rozpoznaj¹ nazwy domen z adresu IP (screeny).
+---------------------------------------------------------------
+zone "{addr srv, na odwrót}.in-addr.arpa" IN {
+        type master;
+        file "/etc/bind/rev.srv.local.db";
+        allow-update{none;};
+        allow-transfer {{addr srv};};
+        also-notify {{addr srv};};
+};
+cp /etc/bind/db.local /etc/bind/rev.srv.local.db
+vi /etc/bind/rev.srv.local.db
+// zmieñ
+> @       IN      SOA     dlp.srv.local. root.dlp.srv.local.
+// dodaj
+> @       IN      NS      dlp.srv.local.
+> dlp     IN      A       10.10.26.1
+> 10      IN      PTR     dlp.srv.local.
+> 11      IN      PTR     klient1.srv.local.
+
+named-checkconf
+named-checkzone srv.local for.srv.local.db
+named-checkzone 0.0.0.10.in-addr.arpa rev.srv.local.db
+---------------------------------------------------------------
+
+6. Przetestuj dzia³anie serwera DNS i rozwi¹zane nazw i adresów (screen).
+dig dlp
+dig -x 10.10.x.10
+
+7. Zainstaluj i skonfiguruj oraz przetestuj us³ugê serwera www Apache2.
+
+a) zainstaluj us³ugê apache2 i uruchom serwis WWW (screen).
+apt install apache2
+systemctl restart apache2
+vi /etc/apache2/apache2.conf
+> ServerName srv.world
+C:\Windows\System32\drivers\etc\hosts
+> {addr srv}	srv.world
+
+b) za³ó¿ konto nazwiskoklasa dla wirtualnego serwera WWW (screen).
+adduser {nazwa}
+
+c) w³¹cz katalog u¿ytkownika (dziêki temu ustawieniu u¿ytkownicy mog¹ tworzyæ strony internetowe we w³asnym katalogu domowym), sprawdŸ dostêp do katalogu u¿ytkownika (screen).
+a2enmod userdir
+systemctl restart apache2
+su {nazwa}
+mkdir ~/public_html
+vi ~/public_html/index.html
+> coœ
+chmod 755 /home/{nazwa}/ -R 
+
+d) uruchom wirtualny serwer, aby u¿ywa³y nazwy virtual.nzawisko (screen).
+
+mkdir /var/www/virtual.{nazwa}/html -p
+chmod -R 755 /var/www/virtual.{nazwa}
+vi /var/www/virtual.{nazwa}/html/index.html
+> coœ
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sitesavailable/virtual.{nazwa}.conf
+vi /etc/apache2/sitesavailable/virtual.{nazwa}.conf
+> ServerName virtual.{nazwa}
+> DocumentRoot /var/www/virtual.{nazwa}/html
+a2ensite virtual.host
+a2dissite 000-default.conf
+systemctl reload apache2
+apache2ctl configtest
+
+przetestuj na stacji roboczej przez przegl¹darkê internetow¹ logowanie u¿ytkownika nazwiskoklasa na serwer www (apache2) i sprawdŸ zawartoœæ strony na serwerze WWW (screen).
+apt -y install apache2-utils
+vi /etc/apache2/sites-available/virtual.{nazwa}.conf
+> <Directory /var/www/html/virtual.{nazwa}/html/ >
+> 		AuthType Basic
+> 		AuthName "auth"
+> 		AuthUserFile /etc/apache2/.htpasswd
+> 		Require valid-user
+> 	</Directory>
+htpasswd -c /etc/apache2/.htpasswd {nazwa}
+
+e) Uruchom wirtualny serwer WWW, stronê pseudo.int dla SSOx na adresie ip statycznym 10.10.x.2/24 (x-nr z dziennika) (screen)
+adduser sso{num}
+vi /var/www/pseudo.int/index.html
+> cos
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sitesavailable/pseudo.int.conf
+vi /etc/apache2/sites-available/pseudo.int.conf
+> ServerName pseudo.int 
+> DocumentRoot /var/www/pseudo.int
+> <Directory /var/www/pseudo.int>
+>                 AuthType Basic
+>                 AuthName "auth"
+>                 AuthUserFile /var/www/.htpasswd
+>                 Require valid-user
+> </Directory>
+htpasswd -c /var/www/.htpasswd sso{num}
+systemctl reload apache2
+
+8. Zainstaluj i skonfiguruj oraz przetestuj us³ugê ftp:
+apt -y install vsftpd
+
+a) skonfiguruj ftp dla u¿ytkowników lokalnych (screen).
+vi /etc/vsftpd.conf
+> write_enable=YES
+> ascii_upload_enable=YES 
+> ascii_download_enable=YES
+> chroot_local_user=YES
+> chroot_list_enable=YES
+> chroot_list_file=/etc/vsftpd.chroot_list
+>   ls_recurse_enable=YES
+> local_root=public_html
+> seccomp_sandbox=NO
+vi /etc/vsftpd.chroot_list
+> ubuntu
+systemctl restart vsftpd
+
+b) za³ó¿ konto nazwiskoklasa (screen).
+adduser {nazwa}
+
+c) utwórz grupê klasa (screen).
+groupadd {nazwa}
+
+d) przypisz u¿ytkownika nazwiskoklasa do grupy klasa (screen).
+usermod -aG {nazwa gr} {nazwa uz}
+
+e) w katalogu domowym u¿ytkownika nazwiskoklasa utwórz pliki plik.txt i plik (screen).
+touch /home/{nazwa}/public_html/plik.txt
+touch /home/{nazwa}/public_html/plik
+
+f) przetestuj na stacji roboczej z konsoli logowanie u¿ytkownika nazwiskoklasa na ftp (screen).
+vi /etc/vsftpd.chroot_list
+> {nazwa}
+
+g) na stacji roboczej pobierz z katalogu domowego pliki plik.txt i plik (screen).
+Praktyczne zadania powtórzeniowe z konfiguracji us³ug sieciowych
