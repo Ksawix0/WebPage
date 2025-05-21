@@ -12,4 +12,4 @@ echo "----------------------"
 read -p "number> " num
 echo ${files[num]}
 echo "----------------------"
-curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[num]}" 
+curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[$num]}" 
