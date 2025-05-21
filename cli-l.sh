@@ -7,8 +7,10 @@ for i in ${files[@]}; do
     tmp=$((tmp + 1))
     echo "$tmp. $i"
 done
-
+echo "----------------------"
 read -p "number> " num
-echo ${files[$(($num - 1))]}
+num=$(($num - 1))
+echo ${files[num]}
+echo "----------------------"
 
-curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[$(($num - 1))]}" 
+curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[num]}" 
