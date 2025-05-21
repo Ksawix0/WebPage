@@ -5,11 +5,12 @@ $num=1
 tmp=0
 clear
 for i in ${files[@]}; do
-    echo "$tmp. $i"
     tmp=$((tmp + 1))
+    echo "$tmp. $i"
 done
 echo "----------------------"
 read -p "number> " num;
 echo ${files[num]}
+num=$((num - 1))
 echo "----------------------"
 curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[$num]}" 
