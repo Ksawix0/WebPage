@@ -1,6 +1,7 @@
 #!/bin/bash
 files=("srv-dhcp-dns-ftp-kys-itp.txt" "PrSO.txt")
 $tmp=0
+$num=0
 tmp=0
 clear
 for i in ${files[@]}; do
