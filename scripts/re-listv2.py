@@ -38,7 +38,7 @@ for value in config:
 
 
 
-#? processing each file
+#? processing each file separately
 for dir_num in range(len(config["file_dir"])):
     files = []
     with open(config['source_file'][dir_num], 'r') as file:  # source/template read
@@ -66,6 +66,6 @@ for dir_num in range(len(config["file_dir"])):
         start_line += 1
 
     #? writing to file
-    with open(write_file, "r+") as filew:
+    with open(write_file, "w") as filew:
         filew.writelines(template)
     print("\n".join(template))

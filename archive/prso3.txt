@@ -1,0 +1,55 @@
+Wykonaj poni¿sze zadania zapisz na pulpicie dowody wykonania w postaci zrzutów ekranu w folderze imiê_nazwisko.
+1. Wyœwietl listê wszystkich zainstalowanych pakietów.
+apt list --installed
+2. Podaj polecenie które wykona ponown¹ instalacje niezainstalowanego pakietu z powodu braku zale¿noœci
+apt-get check
+3. Podaj polecenie które wykona wyszukiwanie pakietu.
+apt search
+4. Przedstaw polencie wynikiem dzia³ania którego bêdzie usuniêcie pakietu wraz z zale¿noœciami.
+apt purge
+5. ZnajdŸ listê wybranych, dodatkowych repozytoriów (nie wszystkie s¹ aktywne) które pozwol¹ na instalacjê aktualnych wersji programu TOR i programu VirtualBox.
+grep -r '^deb' /etc/apt/sources.list /etc/apt/sources.list.d/
+6. Wyœlij komunikaty o okreœlonym rozmiarze.
+ping -s 1000 {IP}
+7. Podaj polecenie które pokazuje nas³uchuj¹ce porty.
+netstat -a | grep -i listening
+8. Wyœwietl ustawienia automatycznego uruchomiania us³ug.
+systemctl list-unit-files -t service
+9. Wykonaj zapytanie "czy wystartowano", us³ugê httpd.service
+systemctl is-active httpd.service
+10. Wykonaj wysy³anie komunikatów z okreœlon¹ wartoœci¹ TTL.
+ping -t 1 {IP}
+11. Podaj polecenie które wykona proste aktywne skanowanie TCP jednego adresu IP oraz poka¿ wyniki.
+nmap -sT {IP}
+12. U¿yj w systemie Linux polecenia wyœwietlaj¹cego tablicê ARP.
+ip neighbour
+13. Podaj polecenie które nie rozwi¹zuje nazw domenowych tylko pokazuje IP. Bardzo przydatne, gdy¿ lookupy nazw DNS s¹ bardzo wolne.
+netstat -n
+14. Za pomoc¹ polecenia wykonaj proste aktywne skanowanie UDP oraz poka¿ wyniki.
+nmap -sU {IP}
+15. U¿yj w systemie Linux polecenia pokazuj¹cego ruting.
+ip route show
+16. Wykonaj za pomoc¹ tcpdump i przekieruj do pliku pods³uch sieci nastêpnie wykonaj interpretacje pods³uchu interfejsu enp0s8 i enp0s3.
+tcpdump -i any -v -w {nazwa pliku}
+tcpdump -r {nazwa pliku}
+17. Podaj polecenie do zainstalowania œrodowiska GNOME, KDE, XFCE, LXDE, FLUXBOX, WINDOW MAKER.
+GNOME:
+apt install ubuntu-gnome-desktop
+KDE:
+apt install kubuntu-desktop
+XFCE:
+apt install xubuntu-desktopwin
+FXDE:
+apt install lubuntu-desktop
+FLUXBOX:
+apt install fluxbox
+WINDOW MAKER:
+apt install wmaker
+18. Podaj polecenie do sprawdzenia wersji programu Wine zainstalowanego w linux.
+wine --version
+19. Podaj polecenie aby wywo³aæ panel konfiguracyjny Wine
+wine winecfg
+
+
+
+
