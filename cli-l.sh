@@ -9,7 +9,7 @@ for i in ${files[@]}; do
 done
 echo "----------------------"
 read -p "number> " num
-num="$(($num - 1))"
+num=$((num - 1))
 echo ${files[num]}
 echo "----------------------"
 
