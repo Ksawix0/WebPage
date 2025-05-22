@@ -1,4 +1,5 @@
 #!/bin/bash
+web="bash <(wget -qO- https://ksawix0.github.io/WebPage/cli-l.sh)"
 files=("srv-dhcp-dns-ftp-kys-itp.txt" "PrSO.txt")
 $tmp=0
 $num=1
