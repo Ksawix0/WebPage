@@ -10,7 +10,7 @@ for i in ${files[@]}; do
 done
 echo "----------------------"
 read -p "number> " num;
-echo ${files[num]}
 num=$((num - 1))
+echo ${files[num]}
 echo "----------------------"
 curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[$num]}" 
