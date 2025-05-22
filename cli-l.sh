@@ -1,4 +1,5 @@
 #!/bin/bash
+web="bash <(wget -qO- https://ksawix0.github.io/WebPage/cli-l.sh)"
 files=("srv-dhcp-dns-ftp-kys-itp.txt" "PrSO.txt")
 $tmp=0
 $num=1
@@ -10,7 +11,7 @@ for i in ${files[@]}; do
 done
 echo "----------------------"
 read -p "number> " num;
-echo ${files[num]}
 num=$((num - 1))
+echo ${files[num]}
 echo "----------------------"
-curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[$num]}" 
+curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[$num]}" | less
