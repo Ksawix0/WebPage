@@ -13,4 +13,4 @@ read -p "number> " num;
 num=$((num - 1))
 echo ${files[num]}
 echo "----------------------"
-curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[$num]}" 
+curl -so- "https://ksawix0.github.io/WebPage/cli-docs/${files[$num]}" | less
