@@ -1,0 +1,122 @@
+Gr1
+1)
+2)
+a) #!/bin/bash
+for zmn in $1/*; do
+if ! [[ -x $zmn ]]; then
+rm $zmn
+fi
+done
+b) #!/bin/bash
+for zmn in $1/*; do
+if [[ $zmn == *$2 ]]; then
+echo $zmn >> plik
+cat $zmn >> plik
+fi
+done
+c) !/bin/bash
+f1=$(cat $1)
+f2=$(ls $2)
+for zmn in $f1; do
+if [[ -z $( echo $f2|grep $zmn ) ]]; then
+echo $zmn
+fi
+done
+for zmn in $f2; do
+if [[ -z $( echo $f1|grep $zmn ) ]]; then
+echo $zmn
+fi
+done
+3) #!/bin/bash
+pik=$(find $1 -perm -u=rw)
+echo $pik
+echo $pik | wc â€“w
+4) #!/bin/bash
+mkdir kopiap
+mkdir KW_gr1
+touch KW_gr1/plik{1,2}
+
+echo abc >> plik1
+echo abc >> plik2
+tar -cavf ./kopiap/KW_gr1_kopia.gz KW_gr1
+mv ./kopiap/KW_gr1_kopia.gz ./kopiap/KW_gr1_kopia.tgz
+useradd u33 -p QWERtyuiop
+useradd u55 -p QWERtyuiop
+groupadd pracownicy
+usermod -aG pracownicy u33
+usermod -aG pracownicy u55
+5)
+a) mkdir /tmpp/bck.tar
+crontab -e
+> tar -cvf /tmpp/bck.tar /etc
+b) crontab -e
+> 0 18 1 12 * /skrypt
+> 0 22 1 12 * /skrypt
+c) crontab -e
+> 0 21 * * 2 /skrypt
+> 0 21 * * 5 /skrypt
+6) for zmn in $(lsmod) ;do
+modinfo $zmn
+done
+7)
+a) os-prober
+update-grub
+b) nano /etc/default/grub
+> GRUB_TIMEOUT=15
+update-grub
+Gr2
+1)
+2)
+
+a) #!/bin/bash
+for zmn in $1/*; do
+if [[ -w $zmn ]]; then
+echo tak $zmn
+mv $zmn $zmn.old
+fi
+done
+b)
+for zmn in $1/*; do
+if [[ -x $zmn ]]; then
+mv $zmn $2
+fi
+done
+c) !/bin/bash
+l=0
+for zmn in $1/*;do
+if [[ -x $zmn ]];then
+l=$(( $l + 1 ))
+fi
+done
+echo $l
+3) find $1 -perm -u+rx -type f,d | wc â€“w
+4) #!/bin/bash
+mkdir KW_gr2
+mkdir kopiad
+touch KW_gr2/plik{1,2}
+echo abc >> a/plik1
+echo abc >> a/plik2
+tar -cavf ./kopiad/KW_gr2_kopia.gz ./KW_gr2
+mv ./kopiad/KW_gr2_kopia.gz ./kopiad/KW_gr2_kopia.tgz
+useradd -p AsdfGHJKL u22
+useradd -p AsdfGHJKL u44
+groupadd inni
+usermod -aG inni u3
+usermod -aG inni u44
+5)
+
+a) Crontab -e
+> 0 21 * * 1 tar -cvf /tmpd/bck.tar /etc
+b) > 0 6 1 1 * /skrypt
+> 0 10 1 1 * /skrypt
+c) > 0 18 * * 4 /skrypt
+> 0 18 * * 5 /skrypt
+6) #!/bin/bash
+for zmn in $(lsmod); do
+modinfo $zmn
+done
+7)
+a) os-prober
+update-grub
+b) nano /etc/default/grub
+> GRUB_TIMEOUT=25
