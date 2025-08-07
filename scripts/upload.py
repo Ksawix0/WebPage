@@ -1,10 +1,12 @@
 import subprocess
+import os
+from sys import argv
 import json
 import list_scr
 
 def ps1(command:str) -> str:
     return subprocess.check_output(["powershell", "-Command",command], universal_newlines=True, cwd="../")
-
+os.chdir("\\".join(argv[0].split("\\")[:-2]))
 with open("./scripts/list.json", "r") as file:
     old_json_list = json.load(file)
 print(old_json_list)
@@ -57,8 +59,10 @@ else:
         branch = ps1('git rev-parse --abbrev-ref HEAD')
         print(f"Pushing to origin/{branch}")
         subprocess.run([f"powershell", "-Command", f"git push origin {commit_sha}:{branch}"])
+        input("press ENTER to continue..")
+        exit()
 
     else:
         print("No listed changes / no with proper extensions\nexiting..")
+        input("press ENTER to continue..")
         exit()
-
