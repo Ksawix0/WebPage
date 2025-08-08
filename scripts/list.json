@@ -18,6 +18,11 @@
             "prso3.pdf",
             "prso3.txt",
             "so1.pdf"
+        ],
+        "cli-docs": [
+            "pk2.txt",
+            "PrSO.txt",
+            "srv-dhcp-dns-ftp-kys-itp.txt"
         ]
     }
 }
