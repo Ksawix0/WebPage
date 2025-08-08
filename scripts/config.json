@@ -1,5 +1,5 @@
 {
-    "file_dir": ["./docs/", "./archive/"],
+    "file_dir": ["./docs/", "./archive/", "./cli-docs"],
     "source_file": ["./docs/index_v0.html", "./archive/index_v0.html"],
     "write_file": ["./docs/index.html", "./archive/index.html"],
     "backup_file": ["./docs/index_Backup.html", "./archive/index_Backup.html"],

@@ -2,7 +2,7 @@ import subprocess
 import os
 from sys import argv
 import json
-import list_scr
+import list_html
 
 def ps1(command:str) -> str:
     return subprocess.check_output(["powershell", "-Command",command], universal_newlines=True, cwd="../")
@@ -10,7 +10,7 @@ os.chdir("\\".join(argv[0].split("\\")[:-2]))
 with open("./scripts/list.json", "r") as file:
     old_json_list = json.load(file)
 print(old_json_list)
-listing = list_scr.main()
+listing = list_html.main()
 ps1("git restore --staged .")
 ps1("git add -N --ignore-removal .")
 diff = ps1("git diff --name-only")
