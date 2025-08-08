@@ -1,5 +1,5 @@
 #!/bin/bash
-files=("srv-dhcp-dns-ftp-kys-itp.txt" "PrSO.txt" "pk2.txt")
+files=('pk2.txt' 'PrSO.txt' 'srv-dhcp-dns-ftp-kys-itp.txt')
 $tmp=0
 $num=1
 tmp=0

@@ -3,14 +3,22 @@ import os
 from sys import argv
 import json
 import list_html
+import list_cli
+
+#?Variables
+append_files=["scripts/list.json", "cli-l.sh"]
+#?Variables
 
 def ps1(command:str) -> str:
-    return subprocess.check_output(["powershell", "-Command",command], universal_newlines=True, cwd="../")
-os.chdir("\\".join(argv[0].split("\\")[:-2]))
+    return subprocess.check_output(["powershell", "-Command",command], universal_newlines=True, cwd=("\\".join(argv[0].split("\\")[:-2])) )
 with open("./scripts/list.json", "r") as file:
     old_json_list = json.load(file)
 print(old_json_list)
+
 listing = list_html.main()
+listing_cli = list_cli.main()
+
+os.chdir("\\".join(argv[0].split("\\")[:-2]))
 ps1("git restore --staged .")
 ps1("git add -N --ignore-removal .")
 diff = ps1("git diff --name-only")
@@ -18,7 +26,7 @@ diff = ps1("git diff --name-only")
 if diff== "":
     print("brak")
 else:
-    with open("./list.json", "r") as file:
+    with open("./scripts/list.json", "r") as file:
         json_list = json.load(file)
 
     listed_files = []
@@ -30,8 +38,9 @@ else:
         for value in old_json_list["list"][name]:
             old_listed_files.append(f"{name}/{value}")
 
-    listed_files.append("scripts/list.json")
-    # print(listed_files)
+    #? Append additional files
+    listed_files.extend(append_files)
+    print(listed_files)
 
     print("Changes:")
 
@@ -53,7 +62,7 @@ else:
         commit_msg = f"Ci: add/remove files\nFiles changed:\n- { "\n- ".join(filtered_diff) }"
         print(f"Commit message:\n{commit_msg}\n")
         print("Commiting changes..")
-        subprocess.run(["powershell", "-Command", f"git commit -m '{commit_msg}' {" ".join(filtered_diff)}"], cwd="../")
+        subprocess.run(["powershell", "-Command", f"git commit -m '{commit_msg}' {" ".join(filtered_diff)}"], cwd=("\\".join(argv[0].split("\\")[:-2])))
         commit_sha = ps1("git log -1 --pretty=format:'%H'")
         print(f"\nCommit sha: {commit_sha}")
         branch = ps1('git rev-parse --abbrev-ref HEAD')
