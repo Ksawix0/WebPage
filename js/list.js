@@ -8,12 +8,7 @@ if (document.cookie.length > 0){
 
 let site_name
 url = location.href.split('?')[0].split('/')
-if (url[url.length - 1].endsWith('.html')) {
-    site_name = url[url.length - 2]
-}
-else{
-    site_name = url[url.length - 1]
-}
+site_name = url[url.length - 2]
 document.addEventListener('DOMContentLoaded', () => {
     let list = document.getElementById('list')
     listing(cookies['old_list'].split(','), list)
