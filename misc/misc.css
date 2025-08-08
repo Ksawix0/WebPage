@@ -31,11 +31,12 @@
 }
 
 .md-code{
-    overflow: auto;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     background-color: #2e2e3e;
 }
 .md-code pre{
+    overflow: auto;
     position: relative;
     float: left;
     padding: 1rem;
