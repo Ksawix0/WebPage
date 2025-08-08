@@ -23,16 +23,20 @@
   user-select: none;
 }
 
+/*Fonts end*/
+
 .fill{
     font-variation-settings: 'FILL' 1;
 }
 
-@media screen and (max-height: 20cm) {
+@media (max-width: 768px) {
     .header h1{
-        background-color: orange;
-        text-align: center;
-        color: white;
-        font-size: 300%;
+        font-size: 300% !important;
+    }
+
+    .content{
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
     }
 }
 * {
@@ -41,6 +45,8 @@
 
 body{
     margin: 0;
+    background-color: black;
+    color: white;
 }
 
 .header{
@@ -75,6 +81,10 @@ body{
     text-decoration: none;
     padding: 10px 16px;
     margin: 0;
+}
+
+.navbar span:hover{
+    background-color: #c6c65d;
 }
 
 .navbar span.right{
