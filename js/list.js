@@ -35,6 +35,6 @@ function save_cookies() {
 function listing(list_f, list){
     list.innerHTML = ''
     for (let i=0 ;i < list_f.length ;i++){
-        list.innerHTML += "<li style=\"text-align: left; padding-left: 5%;\"><a href=\"" + list_f[i] + "\" style=\"font-size: larger; color: white\">" + list_f[i] + "</a></li>"
+        list.innerHTML += "<li style=\"text-align: left; padding-left: var(--rem_padding);\"><a href=\"" + list_f[i] + "\" style=\"font-size: larger; color: white\">" + list_f[i] + "</a></li>"
     }
 }

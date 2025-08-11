@@ -23,10 +23,14 @@
   user-select: none;
 }
 
-/*Fonts end*/
-
 .fill{
     font-variation-settings: 'FILL' 1;
+}
+
+/*Fonts end*/
+
+:root{
+    --rem_padding: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -34,9 +38,8 @@
         font-size: 300% !important;
     }
 
-    .content{
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
+    :root{
+        --rem_padding: 1em !important;
     }
 }
 * {
@@ -93,4 +96,12 @@ body{
     padding: 10px 16px;
     margin: 0;
     text-decoration: none;
+}
+
+.content{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--rem_padding);
+    padding-right: var(--rem_padding);
+    max-width: 1280px;
 }

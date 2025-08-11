@@ -17,13 +17,6 @@
     font-style: normal;
 }
 
-.content{
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    max-width: 1280px;
-}
 /*Fonts end*/
 
 .md-header{
@@ -48,11 +41,10 @@
     margin: 0.4rem;
     display: block;
     float: right;
-}
-.md-code .md-copy span{
-    border-radius: 15%;
     padding: 0.3rem;
+    border-radius: 15%;
 }
-.md-code .md-copy span:hover{
+
+.md-code .md-copy:hover{
     background-color: #4a4a63;
 }
