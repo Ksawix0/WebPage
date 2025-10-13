@@ -21,6 +21,7 @@
 
 .md-header{
     border-bottom: 1px #8a8a8a solid ;
+    border-radius: 5px;
 }
 
 .md-code{
