@@ -1,10 +1,7 @@
 {
     "list": {
         "docs": [
-            "pk33_g1_v7-odp.pdf",
-            "pk3_nowtech_notat.pdf",
-            "PrSO.txt",
-            "srv-dhcp-dns-ftp-kys-itp.pdf"
+            "Win_19.pdf"
         ],
         "archive": [
             "Aleks.txt",
@@ -14,10 +11,14 @@
             "nowtech2.pdf",
             "nowtech2_c.pdf",
             "pk2.pdf",
-            "prso.txt",
+            "pk33_g1_v7-odp.pdf",
+            "pk3_nowtech_notat.pdf",
+            "PrSO.txt",
             "prso3.pdf",
             "prso3.txt",
-            "so1.pdf"
+            "so1.pdf",
+            "srv-dhcp-dns-ftp-kys-itp.pdf",
+            "Win_19.pdf"
         ],
         "cli-docs": [
             "pk2.txt",
