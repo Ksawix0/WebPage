@@ -1,7 +1,11 @@
 {
     "list": {
         "docs": [
+<<<<<<< HEAD
             "Win 19.pdf"
+=======
+            "Win_19.pdf"
+>>>>>>> 1099a5628b9df8ee47b97cb4876a03982d8f0320
         ],
         "archive": [
             "Aleks.txt",
@@ -17,7 +21,12 @@
             "prso3.pdf",
             "prso3.txt",
             "so1.pdf",
+<<<<<<< HEAD
             "srv-dhcp-dns-ftp-kys-itp.pdf"
+=======
+            "srv-dhcp-dns-ftp-kys-itp.pdf",
+            "Win_19.pdf"
+>>>>>>> 1099a5628b9df8ee47b97cb4876a03982d8f0320
         ],
         "cli-docs": [
             "pk2.txt",
