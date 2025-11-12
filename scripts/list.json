@@ -2,8 +2,7 @@
     "list": {
         "docs": [
             "PK2-SHAAW.pdf",
-            "Win 19.pdf",
-            "Win_19.pdf"
+            "SHAAW-odp.pdf"
         ],
         "archive": [
             "Aleks.txt",
@@ -20,6 +19,7 @@
             "prso3.txt",
             "so1.pdf",
             "srv-dhcp-dns-ftp-kys-itp.pdf",
+            "Win 19.pdf",
             "Win_19.pdf"
         ],
         "cli-docs": [
